@@ -1,11 +1,44 @@
-.FlashCard {
-    display: inline-block;
-    width: 470px;
-    height: 320px;
-    margin: 3px;
-    border-radius: 5px;
+.FlashCardBack {
     border: solid 3px rgb(241 175 132);
-    cursor: pointer;
     background: rgb(227,245,124);
     background: radial-gradient(circle, rgba(227,245,124,1) 0%, rgba(255,169,186,1) 100%);
+}
+
+.FlashCard {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+    cursor: pointer;
+    position: relative;
+    perspective: 800px;
+}
+
+.FlashCardBack,
+.FlashCardFront {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.FlashCardInner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 5px;
+    /* border: 3px solid navy; */
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.FlashCardFront {
+    font-size: 30px;
+    line-height: 20px;
+    transform: rotateY(180deg);
+}
+
+.FlashCardInner.flipped {
+    transform: rotateY(180deg)
 }

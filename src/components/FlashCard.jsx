@@ -1,13 +1,22 @@
-import React, { Component } from 'react'
-import './FlashCard.css'
+import React, { Component } from "react";
+import "./FlashCard.css";
 
-
-class FlashCard extends React.Component {
-    render() {
-      return <div className='FlashCard'>
-          <img src=""></img>
-      </div>;
-    }
+class FlashCardBack extends React.Component {
+  render() 
+  {
+    return (
+      <div className="FlashCard" onClick={this.props.pickCard}>
+      <div className={!this.props.isFlipped ? "FlashCardInner" : "FlashCardInner flipped" }>
+       <div className="FlashCardInner">
+        <div className="FlashCardBack">
+          <div className="FlashCardFront">
+              ∆ </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    );
+  }
 }
 
-export default FlashCard; 
+export default FlashCardBack;
